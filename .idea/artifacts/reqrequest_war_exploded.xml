@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="reqrequest:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/reqrequest_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="reqrequest/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="reqrequest" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jsp-api" />
+          <element id="library" level="project" name="servlet-api" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.34-bin" />
+          <element id="library" level="project" name="commons-beanutils-1.7.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
