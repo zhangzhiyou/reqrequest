@@ -13,7 +13,7 @@ public class Dbutil {
 
 
     String url = "jdbc:mysql://localhost:3306/User?"
-            + "user=root&password=zhiyou&useUnicode=true&characterEncoding=UTF8";
+            + "user=root&password=0000&useUnicode=true&characterEncoding=UTF8";
 
     private String jdbcName="com.mysql.jdbc.Driver";
 

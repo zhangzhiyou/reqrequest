@@ -42,6 +42,11 @@
                 <td width="30%"></td>
             </tr>
             <tr>
+                <td>
+                    <a href="tryfenye.jsp">这是个连接</a>
+                </td>
+            </tr>
+            <tr>
                 <td width="40%"></td>
 
                <font color="red">${ error}</font>

@@ -12,7 +12,6 @@
     <title>学生界面</title>
     <%
         if(session.getAttribute("currentUser")==null){
-            System.out.println("返回");
             response.sendRedirect("index.jsp");
             return;
         }
@@ -27,11 +26,11 @@
         $(function(){//todo 内置函数
             var treeData = [//treeData设置成全局的
                 {
-                    text: "根",
+                    text: "信息管理",
                     children: [
                         {
                             text: "班级信息管理",
-                            attributes: {
+                            attributes: {//是属性
                                     url:"classifmanage.jsp"
                                     }
                         },
@@ -45,26 +44,24 @@
                 }
             ];
             $("#tree").tree({
-                data:treeData ,
-                lines:true,
-                onClick:function(node){
-                    if(node.attributes){
-                        openTeb(node.text,node.attributes.url);
+                data:treeData,//定义了类型的变量
+                lines:true,//说明树分支有线
+                onClick:function(node){//点击事件
+                    if(node.attributes){//如果attributes属性存在
+                        openTeb(node.text,node.attributes.url);//
                     }
                 }
-
-
             });
-            //新增teb
+            新增teb
             function openTeb(text,url){
-                if($("#tabs").tabs("exists",text)){
-                    $("#tabs").tabs("select",text);
+                if($("#tabs").tabs("exists",text)){//tabs是div的id，.tabs是指tabs方法,如果存在
+                    $("#tabs").tabs("select",text);//如果存在，就选中
                 }
                 else{
                     var content="<iframe frameborder='0' scrolling='auto' style='width:100%;height:100%' src="+url+"><iframe/>"
                     $("#tabs").tabs('add',{
                         title:text,
-                        closable:true,
+                        closable:true,//该句是把打开的再关上
                         content:content
                     });
                 }
@@ -76,7 +73,7 @@
 <body class="easyui-layout">
     <div region="north" style="height: 80px;">
         <div align="left" style="width:80%;float: left"><img src="img/yun.png" width="100%" height="%100"></div>
-        <div style="padding-top: 50px ;padding-right: 20px"> 当前用户： &nbsp; ${currentUser.username}<font color="red">${currentUser.username}</font></div>
+        <div style="padding-top: 50px ;padding-right: 20px"> 当前用户：${currentUser.username}<font color="red"></font></div>
         </div>
     <div region="center">
         <div class="easyui-tabs" fit="true" border="false" id="tabs">
