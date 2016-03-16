@@ -70,7 +70,6 @@ public class Studentdao {
         if(student.getGradeId()!=-1){
             sql.append(" and s.gradeId='"+student.getGradeId()+"'");
         }
-
         PreparedStatement pstmt = con.prepareStatement(sql.toString());
         ResultSet rs = pstmt.executeQuery();
         if(rs.next()){
@@ -96,9 +95,9 @@ public class Studentdao {
         psmtp.setString(2,student.getStuName());
         psmtp.setString(3,student.getSex());
         psmtp.setString(4, DateUtil.formatDate(student.getBirthday(),"yyyy-MM-dd"));
-        psmtp.setInt(5, student.getGradeId());
-        psmtp.setString(6,student.getEmail());
-        psmtp.setString(7,student.getStuDesc());
+        psmtp.setString(5, student.getEmail());
+        psmtp.setString(6,student.getStuDesc());
+        psmtp.setInt(7,student.getGradeId());
         return psmtp.executeUpdate();
     }
     //todo 更新数据

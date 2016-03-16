@@ -113,14 +113,12 @@
                             $.messager.alert("系统信息","保存成功");
                             clear();
                             $("#dlg").dialog("close");
-                            $("#dg").datagrid("reload");
+                            $("#dg").datagrid("reload");//todo 刷新表中数据
                         }
                     }
                 })
             })
         });
-
-
         //todo 修改学生信息
         $(document).ready(function(){
             //selectedRows获取的是一个二维的数组

@@ -45,7 +45,7 @@ public class GradeDelete extends HttpServlet{
             int delNums=gradedao.gradeDelete(con,deiLds);//获取总数
             if(delNums>0){
                 result.put("success","true");
-                result.put("delNums",delNums);
+                result.put("delNums",delNums);//把删除的条数返还回去
             }else{
                 result.put("errorMas","删除失败");
             }

@@ -49,12 +49,10 @@
                        $.post("grateDelete",{deiLds:ids},function(result){//todo post有四个参数 1.请求的url  2.要传递的参数（可以是键值对，也可以是序列化字符串），3.数据加载后要执行的函数 4,执行完后返回的数据类型（html，json）
                            if(result.success){
                                $.messager.alert("系统提示","您已成功删除<font color='red'>"+result.delNums+"</font>条记录");
-                               $("#dg").datagrid("reload");//如果删除成功给出提示并且刷新#dg表
+                               $("#dg").datagrid("reload");// todo 如果删除成功给出提示并且刷新#dg表
                            }
                            else{
-
                                $.messager.alert("系统提示","<font color='red'>"+selectedRows[result.errorindex].gradeName+"</font>"+result.errorMas);
-                              // $.messager.alert("系统提示","您删除的班级下有学生");
                            }
                        },"json");
                    }

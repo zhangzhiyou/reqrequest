@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by zhiyou on 15-3-11.
@@ -35,11 +37,32 @@ public class Userdao {
                 resultUser.setUsername(rs.getString("username"));
                 resultUser.setPassword(rs.getString("password"));
             }
-
             return resultUser;
         } catch (Exception e){
             e.printStackTrace();
         }
         return resultUser;
+    }
+    public static String username(){
+        Dbutil dbutil = new Dbutil();
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        String s = "用户名:<select name='hello' >";
+        try {
+            String sql = "select username from login";
+            con = dbutil.getCon();
+            pstmt=con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                s = s + "<option name='username' value="+rs.getString(1)+">" + rs.getString(1) + "</option>";
+            }
+            s = s + "<select>";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return s;
     }
 }

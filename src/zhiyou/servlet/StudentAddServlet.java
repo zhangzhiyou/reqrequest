@@ -40,8 +40,8 @@ public class StudentAddServlet extends HttpServlet {
         String email = request.getParameter("email");
         String stuDesc = request.getParameter("stuDesc");
         String id = request.getParameter("id");
+        System.out.println("学号="+stuNo+"姓名="+stuName+"性别="+sex+"生日="+birthday+"年级"+gradeId+"邮件="+email+"描述="+stuDesc+"id="+id);
         Student student = null;
-
         try {
              student = new Student(stuNo, stuName, sex, DateUtil.formatString(birthday, "yyyy-MM-dd"), Integer.parseInt(gradeId), email, stuDesc);
         }

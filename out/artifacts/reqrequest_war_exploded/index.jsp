@@ -15,11 +15,16 @@
           document.getElementById("password").value="";
       }
       </script>
+      <style type="text/css">
+          *{margin :0 auto}
+          body{}
+          .main{background-image: url("img/scenery.jpg");width: 100% ;height:100%}
+      </style>
   </head>
   <body>
-     <div align="center" style="padding-top: 50px;">
+     <div class="main">
          <form action="login" method="post">
-        <table  background="img/scenery.jpg" >
+        <table>
             <tr height="180">
                 <td colspan="4"></td>
             </tr>
@@ -31,7 +36,7 @@
              </tr>
             <tr>
                 <td width="40%"></td>
-                <td width="10%">密    码：</td>
+                <td width="10%">密码：</td>
                 <td><input type="password" value="${password}" id="password" name="password"></td>
                 <td width="30%"></td>
             </tr>
@@ -42,13 +47,7 @@
                 <td width="30%"></td>
             </tr>
             <tr>
-                <td>
-                    <a href="tryfenye.jsp">这是个连接</a>
-                </td>
-            </tr>
-            <tr>
                 <td width="40%"></td>
-
                <font color="red">${ error}</font>
             </tr>
         </table>

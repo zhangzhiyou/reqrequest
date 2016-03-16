@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="zhiyou.Dao.Userdao" %>
 <%--
   Created by IntelliJ IDEA.
   User: zhiyou
@@ -23,6 +26,8 @@
     <script type="text/javascript" src="jquery-easyui-1.3.6/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript" src="vakata-jstree-2f630b4%20(2)/dist/jstree.js"></script>
     <script type="text/javascript">
+
+
         $(function(){//todo 内置函数
             var treeData = [//treeData设置成全局的
                 {
@@ -52,7 +57,7 @@
                     }
                 }
             });
-            新增teb
+        //    新增teb
             function openTeb(text,url){
                 if($("#tabs").tabs("exists",text)){//tabs是div的id，.tabs是指tabs方法,如果存在
                     $("#tabs").tabs("select",text);//如果存在，就选中
@@ -67,7 +72,15 @@
                 }
             }
         });
+        $(".add").append("<h1>nihao</h1>");
     </script>
+    <style type="text/css">
+        .select{
+            font-size: 20px;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body class="easyui-layout">
@@ -86,6 +99,17 @@
 
         <ul id="tree"></ul>
     </div>
-    <div region="south" style="height: 30px;" align="center">版权所属山东理工大学<a href="http://www.sdut.edu.cn/">www.sdut.edu.cn</a></div>
+    <div class="add" region="south" style="height: 30px;" align="center">版权所属山东理工大学<a  href="http://www.sdut.edu.cn/">www.sdut.edu.cn</a>
+        <div class="select">
+        <%=Userdao.username()%>
+            </div>
+    <div>
+        <h1>你好</h1>
+       nihao: <select name="select" id="s" style="font-size: 20px">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+    </div>
 </body>
 </html>

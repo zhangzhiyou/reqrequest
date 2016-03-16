@@ -3,7 +3,10 @@ package zhiyou.servlet;
 
 
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import zhiyou.Dao.Dbutil;
+import zhiyou.Dao.Responseutil;
 import zhiyou.Dao.Userdao;
 import zhiyou.Model.User;
 
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.concurrent.locks.Condition;
 
@@ -36,13 +40,13 @@ public class Loginservlet extends HttpServlet {
         String password = request.getParameter("password");
         request.setAttribute("username",username);
         request.setAttribute("password",password);
+        String s=null;
 
         if (username.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "用户名或密码为空");
             request.getRequestDispatcher("index.jsp").forward(request, response);//
-            return;
-        }
 
+        }
         User user = new User(username, password);
         Connection con = null;
         try {
@@ -57,7 +61,8 @@ public class Loginservlet extends HttpServlet {
                 //获取session
                 HttpSession session = request.getSession();
                 session.setAttribute("currentUser",currentUser);
-                //页面跳转
+                request.setAttribute("h1","你好");
+
                 response.sendRedirect("hello.jsp");
             }
 
@@ -73,5 +78,6 @@ public class Loginservlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
     }
 }
